@@ -6,11 +6,14 @@
     
     <title>BLOG APP</title>
     
-    {{-- <link rel="stylesheet" href="{{asset('css/app.css')}}"> --}}
+    <link rel="stylesheet" href="{{asset('scss/app.scss')}}">
     
 </head>
 <body>
     @include('inc.navbar')
-    @yield('content')
+    <main role="main" class="container">
+        @yield('content')
+    </main>
+    
 </body>
 </html>
