@@ -9,7 +9,9 @@ use App\Post;
 
 class PostTest extends TestCase
 {
+    private $post;
     use RefreshDatabase;
+
 
     public function testCreatePost()
     {
@@ -18,10 +20,15 @@ class PostTest extends TestCase
             'body' => 'test body post'
         ];
 
-        \App\Post::create($data);
+        Post::create($data);
 
-        $this->assertDatabaseHas('posts' , $data);
+        $this->assertDatabaseHas('posts', $data);
     }
 
+    public function testPostHasTitle()
+    {
+        $post = factory(Post::class)->create();
 
+        $this->assertNotEmpty($post->title);
+    }
 }
